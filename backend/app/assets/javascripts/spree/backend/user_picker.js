@@ -5,7 +5,7 @@ $.fn.userAutocomplete = function () {
     return values.map(function (obj) {
       return {
         id: obj.id,
-        text: obj.email
+        text: obj.attributes.email
       }
     })
   }
@@ -16,17 +16,19 @@ $.fn.userAutocomplete = function () {
     ajax: {
       url: Spree.routes.users_api,
       dataType: 'json',
+      headers: {
+        'Authorization': 'Bearer ' + OAUTH_TOKEN,
+      },
       data: function (params) {
         return {
-          q: {
-            email_start: params.term
-          },
-          token: Spree.api_key
+          filter: {
+            email_i_cont: params.term
+          }
         }
       },
       processResults: function(data) {
         return {
-          results: formatUserList(data.users)
+          results: formatUserList(data.data)
         }
       }
     },

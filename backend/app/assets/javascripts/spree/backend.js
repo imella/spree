@@ -13,6 +13,7 @@
 //= require jquery-ui/widgets/autocomplete
 //= require select2-full
 //= require underscore-min.js
+//= require jsonapi-serializer
 
 //= require spree
 //= require spree/backend/spree-select2
@@ -56,6 +57,7 @@
 
 Spree.routes.clear_cache = Spree.adminPathFor('general_settings/clear_cache')
 Spree.routes.checkouts_api = Spree.pathFor('api/v1/checkouts')
+Spree.routes.countries_api = Spree.pathFor('api/v2/platform/countries')
 Spree.routes.classifications_api = Spree.pathFor('api/v1/classifications')
 Spree.routes.option_types_api = Spree.pathFor('api/v1/option_types')
 Spree.routes.option_values_api = Spree.pathFor('api/v1/option_values')
@@ -66,8 +68,7 @@ Spree.routes.checkouts_api = Spree.pathFor('api/v1/checkouts')
 Spree.routes.stock_locations_api = Spree.pathFor('api/v1/stock_locations')
 Spree.routes.taxon_products_api = Spree.pathFor('api/v1/taxons/products')
 Spree.routes.taxons_api = Spree.pathFor('api/v1/taxons')
-Spree.routes.users_api = Spree.pathFor('api/v1/users')
-Spree.routes.tags_api = Spree.pathFor('api/v1/tags')
+Spree.routes.users_api = Spree.pathFor('api/v2/platform/users')
 Spree.routes.variants_api = Spree.pathFor('api/v1/variants')
 
 Spree.routes.edit_product = function (productId) {
